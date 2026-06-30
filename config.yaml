@@ -1,0 +1,49 @@
+seed: 42
+device: auto
+
+classes:
+  - healthy
+  - rust
+  - leaf_spot
+  - bacterial_blight
+
+dataset:
+  train_dir: dataset/train
+  val_dir: dataset/val
+  test_dir: dataset/test
+  sr_train_dir: dataset_sr/train
+  sr_val_dir: dataset_sr/val
+  sr_test_dir: dataset_sr/test
+
+image:
+  image_size: 256
+  low_resolution_size: 128
+  channels: 3
+
+srgan:
+  scale_factor: 2
+  batch_size: 16
+  epochs: 20
+  learning_rate_generator: 0.0001
+  learning_rate_discriminator: 0.0001
+  lambda_content: 1.0
+  lambda_edge: 0.05
+  lambda_adversarial: 0.001
+  checkpoint_dir: checkpoints/srgan
+
+classifier:
+  batch_size: 16
+  epochs: 50
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  embed_dim: 192
+  transformer_depth: 4
+  num_heads: 4
+  mlp_ratio: 4.0
+  dropout: 0.2
+  checkpoint_dir: checkpoints/classifier
+  best_model_name: best_mobilevnet_pvt.pt
+
+evaluation:
+  output_dir: results
+  confusion_matrix_name: confusion_matrix.png

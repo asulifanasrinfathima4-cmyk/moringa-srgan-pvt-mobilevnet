@@ -1,0 +1,31 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pt
+*.pth
+*.ckpt
+*.onnx
+.venv/
+venv/
+.env
+.DS_Store
+.ipynb_checkpoints/
+
+# Datasets and generated images
+dataset/
+dataset_preprocessed/
+dataset_sr/
+
+# Training outputs
+checkpoints/
+runs/
+logs/
+
+# Large result artifacts except the tracked summary placeholder
+results/*.png
+results/*.txt
+results/*.json
+results/*.npy
+results/*.npz
+!results/metrics_summary.csv
